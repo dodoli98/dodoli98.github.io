@@ -1,0 +1,425 @@
+@import url('https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=PT+Mono&display=swap');
+/*
+    Cardo : nav
+    Lato : p
+    PTMono : 제목
+ 
+ 
+ 
+ */
+
+body {
+    position: relative;
+}
+
+#header {
+    padding: 2% 5% 0 5%;
+}
+
+#header_inner {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-bottom: 10px;
+
+    border-bottom: 3px solid;
+
+}
+
+#logo {
+    width: 10vw;
+    height: auto;
+}
+
+#logo>a {
+    display: block;
+    cursor: pointer;
+}
+
+#logo>a>img {
+    max-width: 100%;
+    height: auto;
+
+}
+
+#nav {
+    display: flex;
+
+}
+
+#main_menu {
+    display: flex;
+    align-items: flex-end;
+}
+
+
+
+.open_line {
+    transition: 0.3s;
+    border: 1px;
+    transition: 0.3s;
+    position: relative;
+    /* 가상 요소 위치를 위해 필요 */
+    padding-top: 10px;
+}
+
+.open_line:not(:last-child) {
+    margin-right: 1.5em;
+}
+
+/* 호버 시 스타일 */
+.open_line:hover {
+    letter-spacing: 5px;
+}
+
+
+/* 가상 요소 스타일 */
+.open_line::before {
+    position: absolute;
+    content: "";
+
+    width: 100%;
+    height: 3px;
+    opacity: 0;
+    background-color: black;
+    transform: scaleX(0);
+    transition: 0.4s ease-in-out;
+}
+
+
+/* 상단 가상 요소 스타일 */
+.open_line::before {
+    top: 0;
+    left: 0;
+
+}
+
+
+
+
+.open_line:hover::before,
+.open_line:hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+
+#main_menu>li>a {
+    font-size: 1.5em;
+
+    font-family: PT Mono, serif;
+    font-weight: 900;
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+/* ------------------------------------------- banner */
+#banner {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("../image/bannerbackground.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+
+    perspective: 1px;
+    /* 패럴랙스 효과를 위한 설정 */
+
+}
+
+
+
+
+#banner>div {
+    width: 90%;
+    position: relative;
+    z-index: 2;
+}
+
+#banner>div>img {
+    width: 100%;
+}
+
+
+#blueClimbingShoe {
+    width: 25vw;
+    position: absolute;
+    top: -130%;
+    right: 0%;
+
+
+}
+
+#greenClimbingShoe {
+    width: 25vw;
+    position: absolute;
+    bottom: -90%;
+    left: 10%;
+    z-index: -1;
+
+}
+
+#banner>div>div img {
+    width: 100%;
+    height: auto;
+}
+
+/* --------------------------- product */
+
+#prduct {
+    padding: 30% 0;
+    position: relative;
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8) 10%, rgba(152, 144, 227, 0.8) 30%, rgba(177, 244, 207, 0.8) 70%, rgba(255,255,255,0.8) 100%);
+}
+
+#prduct::before {
+    z-index: 0;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 1; 
+    opacity: 1; 
+    transition: all 1s ease; 
+}
+
+#prduct.intersecting::before {
+    opacity: 0; 
+}
+
+
+#title_wrapper {
+    z-index: 1;
+
+    height: 50%;
+
+    position: absolute;
+    top: 50%;
+    right: 20%;
+    transform: translate(0%, -50%);
+    display: flex;
+
+
+    font-family: PT Mono, serif;
+    font-weight: 900;
+    font-size: 4em;
+}
+
+#title_wrapper>h3:nth-child(1) {
+    margin-right: 0.4em;
+    text-align: end;
+
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+#title_wrapper>h3:nth-child(2) {
+    text-align: end;
+    writing-mode: vertical-rl;
+}
+
+
+#climbingShoes .product_wrapper,
+#climbingGear .product_wrapper {
+    z-index: 1;
+    margin-top: -3%;
+    /* 원하는 만큼 음수 값을 조정하여 겹치게 만듭니다 */
+}
+
+/* HEXAGON */
+.product_item {
+    width: 300px;
+    height: 300px;
+    /* background-color: aliceblue; */
+    clip-path: polygon(50% 0%,
+            100% 25%,
+            100% 75%,
+            50% 100%,
+            0% 75%,
+            0% 25%);
+    margin-right: 2%;
+
+    position: relative;
+
+    background-color: beige;
+}
+
+
+
+.product_item>img {
+    max-width: 100%;
+    height: auto;
+
+    transition: all 1s;
+}
+
+.product_item>img:hover {
+    filter: drop-shadow(0px 0px 20px rgba(255, 255, 255, 1)) drop-shadow(0px 0px 10px rgb(78, 72, 184));
+    transform: scale(1.1);
+}
+
+.product_wrapper {
+    position: relative;
+    top: 0;
+}
+
+/* 암벽화 */
+
+#climbingShoes>.product_wrapper:nth-child(1) {
+    display: flex;
+    padding-left: 20%;
+    box-sizing: border-box;
+}
+
+#climbingShoes>.product_wrapper:nth-child(2) {
+    padding-left: 31%;
+}
+
+#climbingShoes>.product_wrapper:nth-child(3) {
+    padding-left: 20%;
+
+}
+
+/* 장비 */
+#climbingGear>.product_wrapper:nth-child(1) {
+    padding-left: 31%;
+}
+
+#climbingGear>.product_wrapper:nth-child(2) {
+    display: flex;
+    padding-left: 20%;
+}
+
+#climbingGear>.product_wrapper:nth-child(3) {
+    padding-left: 31%;
+}
+
+
+/* ------------------------------- history */
+#history {
+    padding: 20% 0;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+#historyCard_wrapper {
+    width: 80vw;
+
+    display: grid;
+
+}
+
+
+.historyCard {
+    width: 40%;
+    padding: 5%;
+}
+
+.historyCard:nth-child(even) {
+    justify-self: end;
+
+}
+
+
+
+.historyCard:not(:last-child) {
+    margin-bottom: 30%;
+}
+
+
+.historyCard>p {
+    font-family: PT Mono, serif;
+    font-size: 1.4em;
+    line-height: 1.6em;
+
+    opacity: 0;
+    transition: all 0.5s ease-out;
+}
+
+.historyCard>strong {
+    opacity: 1;
+    font-size: 3em;
+    font-weight: 900;
+
+
+}
+
+.historyCard > p.in-view {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------------------- footer */
+#footer {
+    position: relative;
+
+}
+
+#footer_image {
+    width: 35vw;
+
+    position: relative;
+    z-index: 1;
+}
+
+#footer_image>img {
+    width: 100%;
+    height: auto;
+}
+
+
+#contact {
+    position: absolute;
+    bottom: -20%;
+    right: 0;
+    width: 80vw;
+    height: 60vh;
+    background-color: #e3e3e3;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact>ul>li {
+    font-family: Lato, PT Mono, serif;
+
+    font-size: 1.5em;
+
+}
+
+#contact>ul>li:not(:last-child) {
+    margin-bottom: 0.5em;
+}
+
+
+
+#contact>ul>li>a {
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+
+}
