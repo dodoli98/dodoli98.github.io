@@ -1,11 +1,11 @@
 window.onload = function () {
 
     // -------------- loading
-    var welcome = document.querySelector('#loading > h1 > span'); // 첫 번째 span 요소 선택
+    let welcome = document.querySelector('#loading > h1 > span'); // 첫 번째 span 요소 선택
     const welcomeInnerText = 'Welcome!';
-    var loadingPage = document.querySelector('#loading');
-    var homePage = document.querySelector('#home');
-    var banner = document.querySelector('#portfolio_image > img');
+    let loadingPage = document.querySelector('#loading');
+    let homePage = document.querySelector('#home');
+    let banner = document.querySelector('#portfolio_image > img');
 
     let i = 0;
 
@@ -35,8 +35,8 @@ window.onload = function () {
 
 
     // -------------- menu Overlay
-    var menuButton = document.getElementById('menu_button');
-    var menuPage = document.querySelector('.overlay_layout');
+    let menuButton = document.getElementById('menu_button');
+    let menuPage = document.querySelector('.overlay_layout');
 
 
     // 메뉴 버튼에 active 토글
@@ -50,7 +50,7 @@ window.onload = function () {
 
 
     // 메뉴 ul 요소를 선택
-    var menuList = document.getElementById('menu_list');
+    let menuList = document.getElementById('menu_list');
 
     // 메뉴 ul 요소에 클릭 이벤트 리스너를 추가
     menuList.addEventListener('click', toggleMenu);
@@ -71,11 +71,11 @@ window.onload = function () {
     // percentOfPrgress[n]을 percentOfPrgress의 widht값으로 부여
 
     // progress Bar
-    var skillList = document.querySelectorAll("#skill_list > li")
-    var skillIcon = document.querySelectorAll("#skill_list > li > img")
-    var progress = document.getElementById("progress");
-    var percentOfPrgress = [85, 85, 80, 70, 70, 60];
-    var tab_content = document.querySelectorAll(".tab_content")
+    let skillList = document.querySelectorAll("#skill_list > li")
+    let skillIcon = document.querySelectorAll("#skill_list > li > img")
+    let progress = document.getElementById("progress");
+    let percentOfPrgress = [85, 85, 80, 70, 70, 60];
+    let tab_content = document.querySelectorAll(".tab_content")
     //   document.querySelector("#example").animate(keyframes, options);
 
     skillList.forEach(function (item, index) {
@@ -115,54 +115,42 @@ window.onload = function () {
     window.addEventListener('scroll', function () {
         webMotion();
         endingMotion();
-        profileTextMotion();
+        // profileTextMotion();
 
         //새로고침후 스크롤 맨위로
-        history.scrollRestoration = "manual";
+        // history.scrollRestoration = "manual";
     });
 
 
-    // about 페이지모션
+    // --------------------------------------- about 페이지모션
 
-    // h3 텍스트가 화면에 보이기시작하면
-    // h3 요소에 translate 스타일 부여
-    var profileInfoDiv_1 = document.querySelector("#profile_info>div:nth-child(1)")
-    console.log(profileInfoDiv_1);
-    var profileInfoDiv_2 = document.querySelector("#profile_info>div:nth-child(2)")
-    console.log(profileInfoDiv_2);
 
-    function profileTextMotion() {
-        var div_1Rect = profileInfoDiv_1.getBoundingClientRect();
-        var div_2Rect = profileInfoDiv_2.getBoundingClientRect();
-
-        var profileTextArr = [profileInfoDiv_1, profileInfoDiv_2];
-
-        // rect 배열에 값 추가
-        var rect = [div_1Rect, div_2Rect];
-
-        rect.forEach((item, index) => {
-
-            if (item.bottom >=  item.height &&
-                item.top <= (document.documentElement.clientHeight - item.height/3)) 
-            {
-                profileTextArr[index].style.transform = "translate(0%)";
+    let callback = (entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('profileShow');
             } else {
-                // 요소가 화면에 보이지 않을 때
-                if (index === 0) {
-                    // 첫 번째 요소)
-                    profileTextArr[index].style.transform = "translateX(160%)"; // 오른쪽으로 이동된 상태
-                } else if (index === 1) {
-                    // 두 번째 요소
-                    profileTextArr[index].style.transform = "translateX(-160%)"; // 왼쪽으로 이동된 상태
-                }
+                entry.target.classList.remove('profileShow');
             }
+        });
+    };
 
-        })
+    let options = {
+        threshold: 0.6
+    };
 
-    }
+    let observer = new IntersectionObserver(callback, options);
+
+    let targets = document.querySelectorAll('#profile_info > div');
+    console.log(targets);
+    targets.forEach((target) => {
+        observer.observe(target);
+    });
 
 
-    // 웹 스크롤 모션
+
+
+    // -------------------------------------------------- 웹 스크롤 모션
     var webWrapper = document.querySelectorAll('.web_wrapper')
 
 
@@ -198,6 +186,26 @@ window.onload = function () {
 
         });
     }
+
+
+    // -----------------------------------------------------javascript work
+    let containers = document.querySelectorAll('.js_work_wrapper');
+    
+    containers.forEach(container => {
+        container.addEventListener('mousemove', function (e) {
+            var x = e.offsetX;
+            var y = e.offsetY;
+            var rotateY = -1 / 10 * x + 20;
+            var rotateX = 4 / 30 * y - 20;
+    
+            e.currentTarget.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+    
+        container.addEventListener('mouseout', function (e) {
+            e.currentTarget.style.transform = 'perspective(500px) rotateY(0deg) rotateX(0deg)';
+        });
+    });
+    
 
 
 

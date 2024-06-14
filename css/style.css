@@ -1,33 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=Noto+Sans+KR:wght@100..900&family=Sunflower:wght@300&display=swap');
-html {
-    scroll-behavior:smooth
 
+html {
+    scroll-behavior: smooth
 }
 
 body {
     -ms-overflow-style: none;
     font-family: 'Noto Sans KR', serif;
-	overflow-x: hidden;
+    overflow-x: hidden;
 }
 
-::-webkit-scrollbar-track
-{
-  border-radius: 10px;
-  background-color: rgba(0,0,0,0);
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0);
 }
 
-::-webkit-scrollbar
-{
-  width: 12px;
-  background-color: #F5F5F5;
-  background-color: rgba(0,0,0,0);
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+    background-color: rgba(0, 0, 0, 0);
 
 }
 
-::-webkit-scrollbar-thumb
-{
-  border-radius: 10px;
-  background-color: #999;
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #999;
 
 }
 
@@ -46,15 +43,20 @@ body {
 }
 
 @keyframes bounce {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
 }
 
 
 /* ---------- loading */
 
 #loading {
-    /* display: none; */
+    display: none;
 
     height: 100vh;
     width: 100vw;
@@ -67,7 +69,8 @@ body {
     background-repeat: no-repeat;
 
     font-family: agbalumo, serif;
-    transition: 0.5s ease; /* 너비 변경에 0.3초의 애니메이션을 적용합니다. */
+    transition: 0.5s ease;
+    /* 너비 변경에 0.3초의 애니메이션을 적용합니다. */
 
 }
 
@@ -99,7 +102,7 @@ body {
 #home>div {
     width: 50%;
 }
-   
+
 
 .bannerActive {
     transform: translateY(0);
@@ -112,9 +115,9 @@ body {
 
     transform: translateY(100px);
     opacity: 0.1;
-    
+
     transition: all 1s ease;
-   
+
 }
 
 #portfolio_text {
@@ -154,20 +157,26 @@ body {
 #about_me {
     height: 100vh;
 }
+
 #about_me>h2 {
     font-family: agbalumo, serif;
     font-size: 4em;
     padding: 1em 0em 1em 1em;
 }
 
-#profile_info> div> h3 {
+#profile_info>div>h3 {
     font-family: agbalumo, serif;
     text-align: center;
     font-size: 3.5em;
 }
 
+#profile_info>div.profileShow {
+    transform: translateY(0%);
+    opacity: 1;
 
-#profile_info > div {
+}
+
+#profile_info>div {
     margin: auto;
     width: 50vw;
 
@@ -176,23 +185,24 @@ body {
     align-content: space-between;
     align-items: center;
     transition: all 1s ease;
+
+    transform: translateY(15%);
+    opacity: 0;
 }
 
-#profile_info > div:nth-child(1) {
+
+
+
+#profile_info>div:nth-child(1) {
     flex-direction: row-reverse;
-    transform: translateX(100%);
-}
-
-#profile_info > div:nth-child(2) {
-    transform: translateX(-140%);
 }
 
 
-#profile_info>div:nth-child(1) > h3{
+#profile_info>div:nth-child(1)>h3 {
     width: 50%;
 }
 
-#profile_info> div:nth-child(1) >ul {
+#profile_info>div:nth-child(1)>ul {
     width: 50%;
     height: 35vh;
     margin-bottom: 1em;
@@ -210,7 +220,7 @@ body {
     justify-content: center;
 }
 
-#profile_info> div:nth-child(1) >ul>li:not(:last-child) {
+#profile_info>div:nth-child(1)>ul>li:not(:last-child) {
     margin-bottom: 1em;
 }
 
@@ -221,12 +231,12 @@ body {
 
 
 /* 2번째 줄 */
-#profile_info>div:nth-child(2) > h3 {
+#profile_info>div:nth-child(2)>h3 {
     width: 35%;
 }
 
 
-#profile_info>div:nth-child(2) > div {
+#profile_info>div:nth-child(2)>div {
     width: 65%;
     height: 35vh;
     background-color: #fdf7be;
@@ -259,7 +269,7 @@ body {
     transform: scale(0.8);
 }
 
-#skill_list> li:first-child > img {
+#skill_list>li:first-child>img {
     transform: scale(1.2);
 }
 
@@ -267,7 +277,7 @@ body {
 
 #tab_content_wrapper {
     text-align: center;
-    font-family: sunflower, sans-serif;
+    /* font-family: sunflower, sans-serif; */
     font-weight: 600;
     position: relative;
     padding-top: 2em;
@@ -288,7 +298,7 @@ body {
 }
 
 
-#progress_bar{
+#progress_bar {
     width: 70%;
     height: 1.5em;
     border-radius: 15px;
@@ -297,7 +307,7 @@ body {
     background-color: rgba(181, 176, 179, 0.3);
 
     display: flex;
-    align-items: center; 
+    align-items: center;
 
 }
 
@@ -365,7 +375,7 @@ body {
     overflow: hidden;
     box-sizing: border-box;
     opacity: 1;
-} 
+}
 
 
 .web_wrapper>ul {
@@ -384,7 +394,6 @@ body {
 .mockup {
     scale: 1;
     position: relative;
-    border: 1px solid;
 }
 
 .mockup>div:nth-child(1) {
@@ -407,10 +416,46 @@ body {
 }
 
 
-.mockup>div:nth-child(2) {
+.mockup_img {
     width: 40vw;
     height: 65vh;
-} 
+    display: flex;
+    align-items: center;
+
+}
+
+.mockup_img>a {
+    display: block;
+    cursor: pointer;
+}
+
+
+.mockup_img>a>img {
+    border-radius: 25px;
+
+    width: 100%;
+}
+
+
+/* ---------------------- javascript work */
+#javascript_work {
+    display: grid;
+    padding: 15vw;
+}
+.js_work_wrapper {
+    transition: all 0.1s;
+    width: 30vw;
+    height: 60vh;
+    background-color: #BACD92;
+    border-radius: 25px;
+}
+
+.js_work_wrapper:nth-child(2) {
+    justify-self: self-end;
+}
+
+
+
 
 
 /* ---------- Ending */
@@ -424,15 +469,16 @@ body {
     font-weight: 900;
     padding: 20% 0%;
 }
-#ending > p {
+
+#ending>p {
     box-sizing: border-box;
-    
+
     opacity: 0;
     transform: translateY(0px);
     transition: all 500ms;
 }
 
-#ending > p:not(:last-child) {
+#ending>p:not(:last-child) {
     margin-bottom: 10%;
 }
 
@@ -452,20 +498,20 @@ body {
     box-sizing: border-box;
 
     display: flex;
-	flex-basis: 100%;
-	align-items: center;
+    flex-basis: 100%;
+    align-items: center;
 
 }
 
 #contact>h2::before,
 #contact>h2::after {
-  content: "";
-  flex-grow: 1;
-  background-color: rgba(0, 0, 0, 0.35);
-  height: 2px;
-  font-size: 0px;
-  line-height: 0px;
-  margin: 0px 4%;
+    content: "";
+    flex-grow: 1;
+    background-color: rgba(0, 0, 0, 0.35);
+    height: 2px;
+    font-size: 0px;
+    line-height: 0px;
+    margin: 0px 4%;
 }
 
 
@@ -475,13 +521,23 @@ body {
     font-family: agbalumo, serif;
     font-size: 2em;
 
+    padding: 2em;
+
 }
 
-#contact_wrapper > p {
-    padding: 3em 3em;
-    line-height: 2em;
+
+#contact_wrapper>li:not(:last-child) {
+    margin-bottom: 1em;
+
+
 }
 
+#contact_wrapper>li>a {
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
 
 
 
@@ -495,9 +551,9 @@ body {
     top: 5%;
     right: 5%;
     border: none;
-    
+
     cursor: pointer;
-    
+
 }
 
 #menu_button>span {
@@ -533,16 +589,16 @@ body {
 
 .overlay_layout {
     /* display: none; */
-    
+
     height: 100vh;
     width: 100vw;
     position: fixed;
     bottom: 0;
     left: 0;
-    
+
     background-color: #fdf7be;
     border-radius: 50%;
-    
+
     overflow: hidden;
 
     transition: 600ms ease;
@@ -575,9 +631,9 @@ body {
 
 .menu_item>a {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.5); 
+    color: rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease-in-out;
-    
+
     position: relative;
 }
 
@@ -587,21 +643,21 @@ body {
 
 .menu_item a::after {
     content: '';
-    
+
     position: absolute;
     left: 0;
-    bottom: -1px; 
-    width: 0%; 
+    bottom: -1px;
+    width: 0%;
     height: 3px;
     border-radius: 50%;
-    background-color: black; 
-    transition: 0.5s; 
+    background-color: black;
+    transition: 0.5s;
 
-    
+
 }
 
 .menu_item:hover a::after {
-    width: 100%; 
+    width: 100%;
 }
 
 
@@ -613,11 +669,11 @@ body {
     }
 }
 
-/* @media screen and (max-width:850px) and (min-width:601px) {
+@media screen and (max-width:850px) and (min-width:601px) {
     body {
         font-size: 0.7em;
     }
-} */
+}
 
 /* Mobile */
 @media screen and (max-width:600px) {
@@ -652,7 +708,7 @@ body {
 
 
     /*  about me  */
-    #profile_info > div {
+    #profile_info>div {
         width: 80%;
     }
 
@@ -665,7 +721,7 @@ body {
 
     }
 
-    .web_wrapper > ul {
+    .web_wrapper>ul {
         padding: 0;
     }
 
