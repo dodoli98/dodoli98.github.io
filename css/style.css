@@ -439,21 +439,55 @@ body {
 
 /* ---------------------- javascript work */
 #javascript_work {
+    background-color: #BACD92;
     display: grid;
     padding: 15vw;
 }
+
 .js_work_wrapper {
     transition: all 0.1s;
-    width: 30vw;
-    height: 60vh;
-    background-color: #BACD92;
     border-radius: 25px;
+
+    display: flex;
+    flex-direction: column-reverse;
 }
 
+
+
+.js_work_wrapper:nth-child(1) {
+    justify-self: self-start;
+
+}
 .js_work_wrapper:nth-child(2) {
     justify-self: self-end;
+
+}
+.js_work_wrapper > div:nth-child(1) > h3{
+    font-size: 3em;
+    font-family: agbalumo, serif;
+    margin-bottom: 0.3em;
 }
 
+.js_work_wrapper:nth-child(2) > div:nth-child(1){
+    text-align: right;
+}
+
+
+.js_image {
+    width: 30vw;
+    height: 40vh;
+}
+.js_image > a {
+    display: block;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    
+}
+.js_image > a> img {
+    width: 100%;
+    height: 100%;
+}
 
 
 

@@ -195,8 +195,8 @@ window.onload = function () {
         container.addEventListener('mousemove', function (e) {
             var x = e.offsetX;
             var y = e.offsetY;
-            var rotateY = -1 / 10 * x + 20;
-            var rotateX = 4 / 30 * y - 20;
+            var rotateY = -1 / 15 * x + 20;
+            var rotateX = 4 / 60 * y - 10;
     
             e.currentTarget.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
