@@ -45,7 +45,7 @@
 
     </section>
     <script>
-      
+
 
     </script>
 
@@ -111,33 +111,84 @@
     </section>
 
 
+    <!-- 환기 -->
+    <section id="pageDeco">
+        
+    </section>
+
     <section id="history">
-      
-                
+            <svg viewBox="0 50 1955 5727" xmlns="http://www.w3.org/2000/svg">
+                <path class="path"
+                    d="M50.1179 1C1145.76 345.616 2873.29 1121.8 1018.25 1469.6C-836.801 1817.4 319.321 2598.56 1129.26 2945.67C1839.36 3196.91 2745.68 3899.59 690.203 4700.37C-1365.27 5501.15 1831.86 5726 1831.86 5726"
+                    stroke="white" />
+            </svg>
+
+        <script>
+            const content1 = document.getElementById('history')
+            const path1 = document.querySelector('.path')
+            const path1Length = path1.getTotalLength()
+
+
+            path1.style.strokeDasharray = path1Length + ' ' + path1Length
+            path1.style.strokeDashoffset = calcDashoffset(window.innerHeight * 0.8, content1, path1Length)
+
+
+            function calcDashoffset(scrollY, element, length) {
+                const ratio = (scrollY - element.offsetTop) / element.offsetHeight
+                const value = length - (length * ratio)
+                return value < 0 ? 0 : value > length ? length : value
+            }
+
+            function scrollHandler() {
+                const scrollY = window.scrollY + (window.innerHeight * 0.8)
+                path1.style.strokeDashoffset = calcDashoffset(scrollY, content1, path1Length)
+            }
+
+            window.addEventListener('scroll', scrollHandler)
+        </script>
+
+
+
         <div id="historyCard_wrapper">
-         
 
             <div class="historyCard">
                 <strong>Korean</strong>
-                <p> born Young Chu began climbing in the 1970’s when bold characters and minimal gear ruled the climbing scene. “You should never try that,” Young remembers his father saying while hiking in the granite hills of South Korea the day he witnessed his first rock climbing. His youthful fascination overwhelmed him, “My life was changed forever.”</p>
+                <p> born Young Chu began climbing in the 1970’s when bold characters and minimal gear ruled the climbing
+                    scene. “You should never try that,” Young remembers his father saying while hiking in the granite
+                    hills of South Korea the day he witnessed his first rock climbing. His youthful fascination
+                    overwhelmed him, “My life was changed forever.”</p>
             </div>
 
             <div class="historyCard">
                 <strong>1987,</strong>
-                <p> Young started Nelson Sports, Inc, and began designing shoes for mountain and extreme sports. He started designing climbing shoes for Five Ten, motor cross boots for FOX, racing boots for Shift, snowboarding shoes for Device. He was the head designer for Five Ten for 10 years, developing designs that are still incorporated to this day. “I can happily say that the lasts (a form that creates a shoe size, fit and style) that I have developed, which is based on my own foot, are the best selling and most copied lasts in the world.”</p>
+                <p> Young started Nelson Sports, Inc, and began designing shoes for mountain and extreme sports. He
+                    started designing climbing shoes for Five Ten, motor cross boots for FOX, racing boots for Shift,
+                    snowboarding shoes for Device. He was the head designer for Five Ten for 10 years, developing
+                    designs that are still incorporated to this day. “I can happily say that the lasts (a form that
+                    creates a shoe size, fit and style) that I have developed, which is based on my own foot, are the
+                    best selling and most copied lasts in the world.”</p>
             </div>
 
             <div class="historyCard">
-                <strong>In 2002,</strong> 
-                <p>Young Chu started a new brand, “Mad Rock”. Young’s successes in shoe design compelled him to continue designing, and together with his passion for rock climbing a focus on designing affordable rock climbing shoes seemed the best avenue. “I quickly realized that the evolution of the climbing shoe will never end.”</p>
+                <strong>In 2002,</strong>
+                <p>Young Chu started a new brand, “Mad Rock”. Young’s successes in shoe design compelled him to continue
+                    designing, and together with his passion for rock climbing a focus on designing affordable rock
+                    climbing shoes seemed the best avenue. “I quickly realized that the evolution of the climbing shoe
+                    will never end.”</p>
             </div>
 
             <div class="historyCard">
                 <strong>In 2004,</strong>
-                <p> Young received the ISPO Outdoor Award in the footwear category for the Hooker Lace and Hooker EZ designs, “ I always thought this kind of award was given to major shoe companies like Nike and Adidas.” With Mad Rock and Nelson Sports to help fuel the fire, Young was bent on improving the performance of climbing shoes.  “Yvon Chouinard inspires me the most,” He mentions as he recounts his most memorable epic adventure: Climbing the North Face of the Eiger during a snow storm. Once a dirtbag, always a dirtbag. Only now, Young Chu has both the technique and endurance to continue experimenting with his “crazy ideas.”</p>
+                <p> Young received the ISPO Outdoor Award in the footwear category for the Hooker Lace and Hooker EZ
+                    designs, “ I always thought this kind of award was given to major shoe companies like Nike and
+                    Adidas.” With Mad Rock and Nelson Sports to help fuel the fire, Young was bent on improving the
+                    performance of climbing shoes. “Yvon Chouinard inspires me the most,” He mentions as he recounts his
+                    most memorable epic adventure: Climbing the North Face of the Eiger during a snow storm. Once a
+                    dirtbag, always a dirtbag. Only now, Young Chu has both the technique and endurance to continue
+                    experimenting with his “crazy ideas.”</p>
             </div>
         </div>
-        
+
     </section>
 
     <footer id="footer">

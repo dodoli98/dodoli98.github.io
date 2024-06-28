@@ -10,6 +10,8 @@
 
 body {
     position: relative;
+
+
 }
 
 #header {
@@ -118,6 +120,7 @@ body {
 
 /* ------------------------------------------- banner */
 #banner {
+    overflow: hidden;
     height: 100vh;
     width: 100vw;
     background-image: url("../image/bannerbackground.png");
@@ -174,7 +177,7 @@ body {
 #prduct {
     padding: 30% 0;
     position: relative;
-    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8) 10%, rgba(152, 144, 227, 0.8) 30%, rgba(177, 244, 207, 0.8) 70%, rgba(255,255,255,0.8) 100%);
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.8) 10%, rgba(152, 144, 227, 0.8) 30%, rgba(177, 244, 207, 0.8) 70%, rgba(255, 255, 255, 0.8) 100%);
 }
 
 #prduct::before {
@@ -186,13 +189,13 @@ body {
     width: 100%;
     height: 100%;
     background-color: white;
-    z-index: 1; 
-    opacity: 1; 
-    transition: all 1s ease; 
+    z-index: 1;
+    opacity: 1;
+    transition: all 1s ease;
 }
 
 #prduct.intersecting::before {
-    opacity: 0; 
+    opacity: 0;
 }
 
 
@@ -305,14 +308,22 @@ body {
 
 /* ------------------------------- history */
 #history {
+
+    /* offset-path: path("M20,20 C20,100 200,0 200,100"); */
+    position: relative;
+    z-index: 0;
     padding: 20% 0;
     display: flex;
     justify-content: center;
+
+    transition: all 4s;
 }
 
 
 
 #historyCard_wrapper {
+    z-index: 1;
+
     width: 80vw;
 
     display: grid;
@@ -343,7 +354,7 @@ body {
     line-height: 1.6em;
 
     opacity: 0;
-    transition: all 0.5s ease-out;
+    transition: all 1s ease-out;
 }
 
 .historyCard>strong {
@@ -354,9 +365,27 @@ body {
 
 }
 
-.historyCard > p.in-view {
+.historyCard>p.in-view {
     opacity: 1;
 }
+
+svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.path {
+    stroke-linecap: round;
+
+    stroke-width: 50;
+    fill: none;
+}
+
+
 
 
 

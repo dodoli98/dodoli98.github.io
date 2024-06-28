@@ -44,6 +44,21 @@ window.onload = function () {
     
     
     const historyCards = document.querySelectorAll('.historyCard > p');
+    const historyPage = document.getElementById('history');
+    console.log(historyPage);
+
+
+    let historyPageObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.backgroundColor = "#E2E2E2";
+            } else {
+                entry.target.style.backgroundColor = "white";
+            }
+        });
+    });
+    
+    historyPageObserver.observe(historyPage);
 
    
     let historyobserver = new IntersectionObserver(function (entries, observer) {
