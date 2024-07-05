@@ -189,14 +189,14 @@ window.onload = function () {
 
 
     // -----------------------------------------------------javascript work
-    let containers = document.querySelectorAll('.js_work_wrapper');
+    let containers = document.querySelectorAll('.js_work_wrapper > a');
     
     containers.forEach(container => {
         container.addEventListener('mousemove', function (e) {
             var x = e.offsetX;
             var y = e.offsetY;
-            var rotateY = -1 / 15 * x + 20;
-            var rotateX = 4 / 60 * y - 10;
+            var rotateY = -1 / 30 * x + 10; // rotateY 범위를 -10도에서 10도로 설정
+            var rotateX = 1 / 60 * y - 5; 
     
             e.currentTarget.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
