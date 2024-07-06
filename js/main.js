@@ -10,28 +10,39 @@ window.onload = function () {
     let i = 0;
 
 
-    function loading() {
-        // for 문으로바꿔보기
-        if (i < welcomeInnerText.length) {
-            let txt = welcomeInnerText.charAt(i);
-            welcome.innerHTML += txt;
-            i++;
-        } else {
+    // 페이지가 이미 방문되었는지 확인
+    if (sessionStorage.getItem('visited')) {
+        // 방문한 적이 있다면 로딩 페이지를 숨기기
+        loadingPage.style.display = 'none';
+        banner.style.transform = "translate(0%)";
+        banner.style.opacity = 1;
+    } else {
+        // 방문한 적이 없다면 로딩 페이지 보여주기
+        sessionStorage.setItem('visited', 'true');
+
+        function loading() {
+            for (i = 0; i < welcomeInnerText.length; i++) {
+                setTimeout(function (i) {
+                    return function () {
+                        let txt = welcomeInnerText.charAt(i);
+                        welcome.innerHTML += txt;
+                    };
+                }(i), 200 * i);
+            }
+
             setTimeout(function () {
-                loadingPage.style.borderRadius = '50%'
-                loadingPage.style.scale = '0'
-                loadingPage.style.dispaly = 'none';
+                loadingPage.style.borderRadius = '50%';
+                loadingPage.style.scale = '0';
                 setTimeout(function () {
+                    loadingPage.style.display = 'none';
                     banner.style.transform = "translate(0%)";
                     banner.style.opacity = 1;
                 }, 300);
-            }, 3000);
-
+            }, 200 * welcomeInnerText.length + 3000);
         }
+
+        loading();
     }
-    setInterval(loading, 200)
-
-
 
 
     // -------------- menu Overlay
@@ -205,7 +216,39 @@ window.onload = function () {
             e.currentTarget.style.transform = 'perspective(500px) rotateY(0deg) rotateX(0deg)';
         });
     });
-    
+
+    let first_link = document.getElementById("first-link")
+    let second_link = document.getElementById("second-link")
+
+   
+    function jellyTextAnimate() {
+        first_link.style.animationPlayState = 'running';
+        setTimeout(() => {
+            first_link.style.animationPlayState = 'paused';
+            second_link.style.animationPlayState = 'running';
+
+            setTimeout(() =>{
+                second_link.style.animationPlayState = 'paused';
+            },1000)
+        },1000)
+    }
+
+    jellyTextAnimate();
+    setInterval(jellyTextAnimate, 5000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
