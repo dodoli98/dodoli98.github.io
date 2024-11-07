@@ -46,8 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
     skillItems.forEach(item => observer.observe(item));
 
     // works 영역 toggle
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach(button => {
+    const toy_buttons = document.querySelectorAll('.works_expand_btn');
+    const works_content = document.querySelectorAll('.works_content');
+    toy_buttons.forEach(button => {
         button.addEventListener('click', function () {
             this.classList.toggle('rotate');
             this.closest('li').querySelector('.works_content').classList.toggle('expanded');

@@ -1,11 +1,13 @@
-@font-face {
-    font-family: 'Pretendard Variable';
-    font-weight: 45 920;
-    font-style: normal;
-    font-display: swap;
-    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-}
+// @font-face {
+//     font-family: "Pretendard Variable";
+//     font-weight: 45 920;
+//     font-style: normal;
+//     font-display: swap;
+//     src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff2") format("woff2"),
+//         url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+// }
 
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Licorice&display=swap');
 /*
@@ -396,12 +398,13 @@ main {
             justify-content: space-between;
             align-items: center;
 
-            > div:nth-child(1){
+            >div:nth-child(1) {
                 width: 40%;
 
                 h3 {
                     font-family: $subTitle;
                     margin-bottom: 1rem;
+
                     a {
                         display: inline-block;
                         cursor: pointer;
@@ -409,25 +412,28 @@ main {
                         color: #6D1919;
                     }
                 }
-    
+
                 ul {
                     li {
                         font-family: Pretendard;
-    
+
                         font-weight: 400;
                         font-size: 1.4rem;
                     }
 
-                    >li:not(:last-child){
+                    >li:not(:last-child) {
                         margin-bottom: 1rem;
                     }
                 }
 
             }
-            > div:nth-child(2){
+
+            >div:nth-child(2) {
                 width: 50%;
+
                 a {
                     display: inline-block;
+
                     img {
                         width: 100%;
                         height: auto;
@@ -435,15 +441,15 @@ main {
                 }
             }
 
-           
+
         }
 
         >div:nth-child(even) {
             background-color: $aboutBackColor;
-            
+
             ul {
                 li {
-                        color: rgb(191, 191, 191);
+                    color: rgb(191, 191, 191);
                 }
             }
         }
@@ -564,6 +570,7 @@ main {
 
         li {
             cursor: default;
+
             button {
                 height: 50px;
 
@@ -575,6 +582,7 @@ main {
                         height: 100%;
                         width: auto;
                         transition: 0.5s;
+
                         &:hover {
                             scale: 1.2;
                         }
@@ -586,7 +594,7 @@ main {
                 margin-right: 1rem;
             }
 
-            
+
         }
 
         li:not(:last-child) {
