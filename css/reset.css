@@ -1,3 +1,4 @@
+/* reset.css (Eric Meyer's Reset CSS Example) */
 html,
 body,
 div,
@@ -129,3 +130,36 @@ table {
     border-spacing: 0;
 }
 
+/* 추가된 Link 태그 스타일 */
+a {
+    text-decoration: none;
+    /* 링크의 밑줄 제거 */
+    color: inherit;
+    /* 부모 요소의 색상 상속 */
+}
+
+a:visited {
+    color: inherit;
+    /* 방문한 링크 색상도 부모 색상 상속 */
+}
+
+
+
+a:active {
+    color: #000;
+    /* 클릭한 링크 색상 */
+}
+
+hr {
+    margin: 0;
+}
+
+button {
+    background: inherit;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    overflow: visible;
+    cursor: pointer
+}
