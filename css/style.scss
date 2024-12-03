@@ -400,7 +400,7 @@ main {
             align-items: center;
 
             > div:nth-child(1){
-                width: 40%;
+                width: 35%;
 
                 h3 {
                     font-family: $subTitle;
@@ -419,6 +419,7 @@ main {
     
                         font-weight: 400;
                         font-size: 1.4rem;
+                        line-height: 1.7rem;
                     }
 
                     >li:not(:last-child){
@@ -428,7 +429,9 @@ main {
 
             }
             > div:nth-child(2){
-                width: 50%;
+                width: 60%;
+                border-radius: 0 25% 0 25%;
+                overflow: hidden;
                 a {
                     display: inline-block;
                     img {

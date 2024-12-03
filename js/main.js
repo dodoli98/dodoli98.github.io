@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // IntersectionObserver options
+    // skill list
     const options = {
         root: null,
         rootMargin: '0px',
@@ -45,16 +46,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const skillItems = document.querySelectorAll('#skill_list > li');
     skillItems.forEach(item => observer.observe(item));
 
+
+    //==========================================================
     // works 영역 toggle
     const toy_buttons = document.querySelectorAll('.works_expand_btn');
-    const works_content = document.querySelectorAll('.works_content');
     toy_buttons.forEach(button => {
         button.addEventListener('click', function () {
             this.classList.toggle('rotate');
             this.closest('li').querySelector('.works_content').classList.toggle('expanded');
         });
     });
-
+    
+    const works_content = document.querySelectorAll('.works_content');
     // works_item에 대한 IntersectionObserver
     const workItems = document.querySelectorAll('#works_list .work_item');
     const workOptions = {

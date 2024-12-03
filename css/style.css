@@ -305,7 +305,7 @@ main.main-shifted {
   align-items: center;
 }
 #works #works_list .work_item > div:nth-child(1) {
-  width: 40%;
+  width: 35%;
 }
 #works #works_list .work_item > div:nth-child(1) h3 {
   font-family: "Amiri", sans-serif;
@@ -321,12 +321,15 @@ main.main-shifted {
   font-family: Pretendard, Noto Sans KR, sans-serif;
   font-weight: 400;
   font-size: 1.4rem;
+  line-height: 1.7rem;
 }
 #works #works_list .work_item > div:nth-child(1) ul > li:not(:last-child) {
   margin-bottom: 1rem;
 }
 #works #works_list .work_item > div:nth-child(2) {
-  width: 50%;
+  width: 60%;
+  border-radius: 0 25% 0 25%;
+  overflow: hidden;
 }
 #works #works_list .work_item > div:nth-child(2) a {
   display: inline-block;
