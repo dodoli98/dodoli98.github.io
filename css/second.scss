@@ -1,0 +1,457 @@
+@font-face {
+    font-family: "Pretendard Variable";
+    font-weight: 45 920;
+    font-style: normal;
+    font-display: swap;
+    src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff2") format("woff2"),
+        url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Playwrite+NL:wght@100..400&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Licorice&display=swap');
+/*
+Pretendard
+Abril Fatface
+Amiri
+Licorice
+*/
+
+$title: "Abril Fatface", sans-serif;
+$subTitle: "Amiri", sans-serif;
+$aboutBackColor : rgb(29, 32, 36);
+
+html {
+    scroll-behavior: smooth;
+}
+
+// common design  ===================
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+    background-color: rgba(0, 0, 0, 0);
+
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #999;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+
+
+
+// home  ===================
+#title_wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    font-size: 16px;
+
+    h1 {
+        text-align: center;
+        font-family: $title;
+        font-size: 7em;
+    }
+
+    svg {
+        overflow: visible;
+    }
+
+    svg text {
+        font-family: 'Licorice', sans-serif;
+        font-size: 12em;
+        fill: transparent;
+
+        stroke: #6D1919;
+        stroke-width: 1px;
+
+        // dashoffset == dasharray 이면 svg가 안보임
+        // keyframe에서 0%에서 같은값 100%에서 0을주면 그려지는 효과임
+        stroke-dashoffset: 1000;
+        stroke-dasharray: 1000;
+
+        animation: stroke 3s linear;
+
+        // 애니메이션이 끝나면 유지
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes stroke {
+        0% {
+            stroke-dashoffset: 1000;
+        }
+
+        70% {
+            fill: #6D1919;
+        }
+
+        100% {
+            stroke-dashoffset: 0;
+            fill: #6D1919;
+        }
+    }
+
+}
+
+
+// about  ===================
+.hover-image {
+    position: fixed;
+    pointer-events: none;
+    /* 이미지가 호버 이벤트를 방해하지 않도록 */
+    width: auto;
+    /* 이미지 크기 조절 */
+    height: 200px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transform: translate(-50%, -50%);
+    /* 이미지 중앙 정렬 */
+}
+
+#about {
+    background-color: $aboutBackColor;
+
+
+    .about_item {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $aboutBackColor;
+
+        font-family: Pretendard, Noto Sans KR, sans-serif;
+        font-size: 1.5rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+
+        p {
+            color: rgb(170, 170, 170);
+
+            line-height: 2rem;
+
+            span {
+                position: relative; // 부모 span에 relative 설정
+                transition: all 0.5s ease;
+                color: #2d2d2d;
+                cursor: pointer;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -1px;
+                    width: 0%; // 처음에는 0%
+                    height: 1px;
+                    background-color: rgb(255, 255, 255);
+                    color: rgb(255, 255, 255);
+
+
+                    transition: width 0.5s ease; // width만 변경하도록 설정
+                }
+
+                &:hover {
+                    color: rgb(255, 255, 255);
+
+
+                    &::after {
+                        width: 100%; // hover 시 width가 100%로 증가
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+// skill  ===================
+#skill {
+
+    background-color: $aboutBackColor;
+    color: white;
+}
+
+#skill_list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    li {
+        font-family: Pretendard, Noto Sans KR, sans-serif;
+
+        padding: 5%;
+
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 1.5s ease;
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 1em;
+
+        }
+
+        p {
+            font-size: 1.3rem;
+            font-weight: 300;
+        }
+
+        &.visible {
+            // 'visible' 클래스가 추가되면 나타남
+            opacity: 1;
+            transform: translateY(0); // 제자리로 이동
+        }
+
+    }
+}
+
+// WORKS  ===================
+#works {
+    padding: 5% 0;
+
+    h2 {
+        box-sizing: border-box;
+        padding: 0 7%;
+    }
+
+
+    #works_list {
+        position: relative;
+
+        .work_item {
+            padding: 0 7%;
+            box-sizing: border-box;
+
+            background-color: white;
+
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            transition: transform 1s ease; // 스케일 변화를 부드럽게
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            >div:nth-child(1) {
+                width: 40%;
+
+                h3 {
+                    font-family: $subTitle;
+                    margin-bottom: 1rem;
+
+                    a {
+                        display: inline-block;
+                        cursor: pointer;
+                        font-size: 4rem;
+                        color: #6D1919;
+                    }
+                }
+
+                ul {
+                    li {
+                        font-family: Pretendard, Noto Sans KR, sans-serif;
+
+                        font-weight: 400;
+                        font-size: 1.4rem;
+                    }
+
+                    >li:not(:last-child) {
+                        margin-bottom: 1rem;
+                    }
+                }
+
+            }
+
+            >div:nth-child(2) {
+                width: 50%;
+
+                a {
+                    display: inline-block;
+
+                    img {
+                        width: 100%;
+                        height: auto;
+                    }
+                }
+            }
+
+
+        }
+
+        >div:nth-child(even) {
+            background-color: $aboutBackColor;
+
+            ul {
+                li {
+                    color: rgb(191, 191, 191);
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+// toy project  ===================
+#toy_project {
+    padding: 0;
+
+    h2 {
+        padding: 0 7%;
+    }
+}
+
+#toy_project_list {
+    li {
+        border-bottom: 1px solid rgb(137, 137, 137);
+        padding: 0.5em 0;
+        margin-bottom: 1em;
+        overflow: hidden;
+        position: relative;
+
+        .works_title {
+            box-sizing: border-box;
+            padding: 1% 7% 0 7%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+
+
+            h3 {
+                font-family: $subTitle;
+
+                a {
+                    display: inline-block;
+                    cursor: pointer;
+                    font-size: 3rem;
+                    color: #6D1919;
+                }
+            }
+
+            button {
+                width: 30px;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    transition: transform 0.5s ease; // 부드러운 회전 애니메이션
+                }
+
+                &.rotate {
+                    img {
+                        transform: rotate(180deg); // 180도 회전
+                    }
+                }
+            }
+
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(255, 199, 189);
+            z-index: -1;
+            transform: translateY(-110%);
+            transition: transform 0.5s ease;
+        }
+
+        &:hover::before {
+            transform: translateY(0);
+        }
+
+    }
+
+    .works_content {
+        box-sizing: border-box;
+        padding: 0% 7%;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.5s ease;
+        font-family: Pretendard, Noto Sans KR, sans-serif;
+
+        p {
+            padding: 1rem 0;
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 1.5rem;
+        }
+
+        &.expanded {
+            max-height: 130px;
+        }
+    }
+}
+
+// CONTCT  ===================
+#contact {
+    color: white;
+    background-color: $aboutBackColor;
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        font-family: $title;
+        font-size: 1.4rem;
+
+        li {
+            cursor: default;
+
+            button {
+                height: 50px;
+
+                a {
+                    height: 100%;
+                    display: inline-block;
+
+                    img {
+                        height: 100%;
+                        width: auto;
+                        transition: 0.5s;
+
+                        &:hover {
+                            scale: 1.2;
+                        }
+                    }
+                }
+            }
+
+            button:not(:last-child) {
+                margin-right: 1rem;
+            }
+
+
+        }
+
+        li:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+
+    }
+
+}
